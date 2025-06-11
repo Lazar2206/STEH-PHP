@@ -6,7 +6,7 @@ Class Prijava {
     public $sala;
     public $datum;
 
-    public function __construct($id, $predmet, $katedra, $sala, $datum) {
+    public function __construct($id, $predmet=null, $katedra=null, $sala=null, $datum=null) {
         $this->id = $id;
         $this->predmet = $predmet;
         $this->katedra = $katedra;
@@ -17,6 +17,10 @@ Class Prijava {
     // READ
     public static function getAll(mysqli $conn) {
         $q="SELECT * FROM prijave";
+        return $conn->query($q);
+    }
+    public function deleteById(mysqli $conn,int $id) {
+        $q = "DELETE FROM prijave WHERE id = '$id'";
         return $conn->query($q);
     }
 }
