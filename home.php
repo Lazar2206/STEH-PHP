@@ -1,4 +1,6 @@
 <?php
+require 'dbBroker.php';
+require 'model/user.php';
 session_start();
 if(!isset($_SESSION['user_id'])) {
     header('Location: index.php');
@@ -9,6 +11,8 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'log_out') {
     header('Location: index.php');
     exit();
 }
+$result=Prijava::getAll($conn);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
