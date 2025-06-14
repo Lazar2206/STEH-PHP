@@ -29,4 +29,20 @@ Class Prijava {
         $q = "INSERT INTO prijave (predmet, katedra, sala, datum) VALUES ('$p->predmet', '$p->katedra', '$p->sala', '$p->datum')";
         return $conn->query($q);
     }
+
+    //read one
+    private function readOne(int $id, mysqli $conn) {
+        $q = "SELECT * FROM prijave WHERE id = '$id'";
+        $result = $conn->query($q);
+        if ($result->num_rows > 0) {
+            return $result->fetch_object();
+        }
+        return null;
+    }
+
+    //update 
+    public function updatePrijava(Prijava $p, mysqli $conn) {
+        $q="SELECT * FROM prijave where id = '$p->id'";
+        return $conn->query($q);
+    }
 }
