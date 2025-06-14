@@ -19,8 +19,14 @@ Class Prijava {
         $q="SELECT * FROM prijave";
         return $conn->query($q);
     }
+    //delete
     public function deleteById(mysqli $conn,int $id) {
         $q = "DELETE FROM prijave WHERE id = '$id'";
+        return $conn->query($q);
+    }
+    //create
+    public function addPrijava(Prijava $p, mysqli $conn) {
+        $q = "INSERT INTO prijave (predmet, katedra, sala, datum) VALUES ('$p->predmet', '$p->katedra', '$p->sala', '$p->datum')";
         return $conn->query($q);
     }
 }
