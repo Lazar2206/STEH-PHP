@@ -10,9 +10,9 @@ class User {
        $this->username = $username;
        $this->password = $password;
    }
-   public function loignUser($username, $password, $conn) {
+   public function loginUser($username, $password, mysqli $conn) {
       $queryStr ="SELECT * FROM user WHERE username = '$username' AND password = '$password'";
-    return true;
+    return  $conn->query($queryStr);
     //poslati upit nad bazom
     }
 }
