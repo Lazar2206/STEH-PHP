@@ -9,5 +9,5 @@ if($conn->connect_error) {
     
 }
 else {
-    echo "Connected to the database successfully!";
+    echo "<script>console.log('Connection succeessful')</script>";
 }
